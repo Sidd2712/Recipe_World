@@ -6,7 +6,7 @@ A simple React-based UI that fetches and displays recipes in cards.
 Includes responsive design and "View More" feature.
 
 ## 📸 Screenshot  
-![Final UI](./screenshot.png)  
+![Final UI](./screenshot1.png)(./screenshot2.png)  
 
 
 ## 🛠️ Tech Stack  
