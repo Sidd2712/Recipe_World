@@ -1,0 +1,30 @@
+.card-section {
+  overflow: hidden;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .view-more-wrapper {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .view-more-btn {
+    background-color: #ff7043;
+    border: none;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .view-more-btn:hover {
+    background-color: #e85c2f;
+  }

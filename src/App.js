@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import Navbar from './components/Navbar';
+import CardGrid from './components/CardGrid';
 
-function App() {
+export default function App() {
+  const [recipes, setRecipes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch('https://dummyjson.com/recipes?limit=100&skip=0')
+      .then(res => {
+        if (!res.ok) throw new Error('Network error');
+        return res.json();
+      })
+      .then(data => {
+        setRecipes(data.recipes || data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Navbar />
+      <main className="main-content">
+        {loading && <p>Loading recipes…</p>}
+        {error && <p style={{ color: 'red' }}>Error: {error}</p>}
+        {!loading && !error && <CardGrid items={recipes} />}
+      </main>
     </div>
   );
 }
-
-export default App;
