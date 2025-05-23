@@ -10,8 +10,8 @@ Includes a "View More" feature to control how many recipes appear at once.
 ![Final UI Screenshot 2](./screenshot2.png)
 
 ## 🛠️ Tech Stack  
-- React 18  
-- Plain CSS (modular per component)  
+- React  
+- CSS 
 - Fetch API  
 
 ## 🚀 How to Run  
