@@ -1,0 +1,70 @@
+.recipe-detail-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+.back-btn {
+  margin-bottom: 20px;
+  background-color: #eee;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.top-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.detail-img {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.details {
+  flex: 1;
+  min-width: 280px;
+  font-size: 16px;
+  line-height: 1.8;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.section {
+  margin-top: 40px;
+}
+
+.section h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #ff4d4d;
+}
+
+ul, ol {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.not-found {
+  text-align: center;
+  font-size: 24px;
+  color: red;
+  margin-top: 100px;
+}

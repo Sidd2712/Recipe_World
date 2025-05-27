@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './css/RecipeCard.css';
 
 export default function RecipeCard({ data }) {
   return (
+    <Link to={`/recipe/${data.id}`} className="link-card">
     <div className="recipe-card">
       <img src={data.image} alt={data.name} className="recipe-img" />
 
@@ -20,5 +22,6 @@ export default function RecipeCard({ data }) {
         </div>
       </div>
     </div>
+    </Link>
   );
 }

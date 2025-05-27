@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Routes,Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import CardGrid from './components/CardGrid';
+import RecipeDetail from './components/RecipeDetail';
+import Footer from './components/Footer';
 
 export default function App() {
   const [recipes, setRecipes] = useState([]);
@@ -8,7 +11,7 @@ export default function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('https://dummyjson.com/recipes?limit=100&skip=0')
+    fetch('https://dummyjson.com/recipes?limit=110&skip=0')
       .then(res => {
         if (!res.ok) throw new Error('Network error');
         return res.json();
@@ -29,8 +32,14 @@ export default function App() {
       <main className="main-content">
         {loading && <p>Loading recipes…</p>}
         {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-        {!loading && !error && <CardGrid items={recipes} />}
+        {!loading && !error && (
+          <Routes>
+            <Route path='/' element={<CardGrid items={recipes}/>}/>
+            <Route path='/recipe/:id' element={<RecipeDetail recipes={recipes}/>}/>
+          </Routes>
+        )}
       </main>
+      <Footer/>
     </div>
   );
 }

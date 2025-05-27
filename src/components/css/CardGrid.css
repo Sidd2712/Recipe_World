@@ -4,27 +4,27 @@
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(4,1fr);
     gap: 2rem;
+    justify-items: center;
+    padding: 2rem 0;
   }
   
-  .view-more-wrapper {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
+  .pagination{
+    margin-top: 20px;
+    text-align: center;
   }
-  
-  .view-more-btn {
-    background-color: #ff7043;
+
+  .pagination button{
+    margin: 0 6px;
+    padding: 8px 14px;
     border: none;
-    color: white;
-    padding: 0.5rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    background-color: #eee;
+    cursor:pointer;
+    border-radius: 5px;
+    font-weight: bold;
   }
-  
-  .view-more-btn:hover {
-    background-color: #e85c2f;
+  .pagination button.active{
+    background-color: #333;
+    color: white;
   }
