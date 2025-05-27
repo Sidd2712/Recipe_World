@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import CardGrid from './components/CardGrid';
 import RecipeDetail from './components/RecipeDetail';
 import Footer from './components/Footer';
+import loadingVid from './Images/loadingVid.mp4';
 
 export default function App() {
   const [recipes, setRecipes] = useState([]);
@@ -18,7 +19,7 @@ export default function App() {
       })
       .then(data => {
         setRecipes(data.recipes || data);
-        setLoading(false);
+        setTimeout(()=> setLoading(false),2500);
       })
       .catch(err => {
         setError(err.message);
@@ -30,7 +31,14 @@ export default function App() {
     <div className="app">
       <Navbar />
       <main className="main-content">
-        {loading && <p>Loading recipes…</p>}
+        {loading &&(
+          <div className='loading-screen'>
+            <video autoPlay muted loop playsInline className='loading_video'>
+              <source src={loadingVid} type="video/mp4"/>
+            </video>
+            <p>Wait for the magic</p>
+          </div>
+        )}
         {error && <p style={{ color: 'red' }}>Error: {error}</p>}
         {!loading && !error && (
           <Routes>

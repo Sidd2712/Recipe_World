@@ -1,4 +1,5 @@
 import React from "react";
+import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
 import "./css/Footer.css";
 
 export default function Footer() {
@@ -21,9 +22,9 @@ export default function Footer() {
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} RecipeWorld. All rights reserved.</p>
         <div className="social-icons">
-          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">📸</a>
-          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">📘</a>
-          <a href="https://twitter.com/" target="_blank" rel="noreferrer">🐦</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><FaInstagram/></a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><FaFacebookF/></a>
+          <a href="https://twitter.com/" target="_blank" rel="noreferrer"><FaTwitter/></a>
         </div>
       </div>
     </footer>
