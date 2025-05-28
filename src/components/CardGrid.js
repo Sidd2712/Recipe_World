@@ -1,22 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RecipeCard from "./RecipeCard";
 import "./css/CardGrid.css";
 
 export default function CardGrid({ items }) {
-  const [viewMore, setViewMore] = useState(false);
-  const visibleItems = viewMore ? items : items.slice(0, 5);
+  const [currentPage, setCurrentPage] = useState(1);
+  const cardsPerPage=12;
+  const startIndex=(currentPage-1)*cardsPerPage;
+  const endIndex=startIndex+cardsPerPage;
+  const currentItems=items.slice(startIndex,endIndex);
+  const totalPages=Math.ceil(items.length/cardsPerPage);
+  useEffect(()=>{
+    window.scrollTo({top:0, behavior:'smooth'});
+  },[currentPage]);
   return (
     <div className="card-section">
       <div className="card-grid">
-        {visibleItems.map((recipe) => (
+        {currentItems.map((recipe) => (
           <RecipeCard key={recipe.id} data={recipe} />
         ))}
       </div>
-      {!viewMore && items.length > 5 && (
-        <div className="view-more-wrapper">
-          <button className="view-more-btn" onClick={() => setViewMore(true)}>
-            View More
-          </button>
+      {totalPages>1 && (
+        <div className="pagination">
+          {Array.from({length:totalPages}, (_,i)=>(
+            <button key={i} onClick={()=> setCurrentPage(i+1)} className={currentPage===i+1?"active":""}>
+              {i+1}
+            </button>
+          ))}
         </div>
       )}
     </div>

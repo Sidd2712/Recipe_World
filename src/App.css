@@ -4,6 +4,10 @@ body {
   background-color: #fff8f0;
   color: #333;
 }
+body, html,#root{
+  height:100%;
+  margin: 0;
+}
 
 .app {
   display: flex;
@@ -20,4 +24,30 @@ body {
 
 .text-center {
   text-align: center;
+}
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-video {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%,-50%);
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
 }
