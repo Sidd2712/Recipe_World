@@ -7,46 +7,50 @@ export default function RecipeDetail({ recipes }) {
   const navigate = useNavigate();
 
   const recipe = recipes.find(r => String(r.id) === id);
-  if (!recipe) return <p className="not-found">Recipe not found.</p>;
+
+  if (!recipe) return <p>Recipe not found.</p>;
 
   return (
     <div className="recipe-detail-container">
-      <button className="back-btn" onClick={() => navigate(-1)}>← Back</button>
+      {/* Hero Section */}
+      <div className="recipe-hero">
+        <div
+          className="hero-image"
+          style={{ backgroundImage: `url(${recipe.image})` }}
+        ></div>
 
-      <h1 className="title">{recipe.name}</h1>
-
-      <div className="top-section">
-        <img src={recipe.image} alt={recipe.name} className="detail-img" />
-        <div className="details">
-          <p><strong>Cuisine:</strong> {recipe.cuisine}</p>
-          <p><strong>Difficulty:</strong> {recipe.difficulty}</p>
-          <p><strong>Prep Time:</strong> {recipe.prepTimeMinutes} mins</p>
-          <p><strong>Cook Time:</strong> {recipe.cookTimeMinutes} mins</p>
-          <p><strong>Total Time:</strong> {recipe.prepTimeMinutes + recipe.cookTimeMinutes} mins</p>
-          <p><strong>Servings:</strong> {recipe.servings}</p>
-          <p><strong>Calories/Serving:</strong> {recipe.caloriesPerServing}</p>
-          <p><strong>Rating:</strong> ⭐ {recipe.rating} ({recipe.reviewCount} reviews)</p>
-          <p><strong>Meal Type:</strong> {recipe.mealType.join(', ')}</p>
-          <p><strong>Tags:</strong> {recipe.tags.join(', ')}</p>
+        <div className="hero-content">
+          <button className="back-btn" onClick={() => navigate(-1)}>← Back</button>
+          <h1>{recipe.name}</h1>
+          <div className="hero-info">
+            <p>🍽️ Cuisine: {recipe.cuisine}</p>
+            <p>⭐ {recipe.rating} ({recipe.reviewCount} reviews)</p>
+            <p>⏱️ Prep: {recipe.prepTimeMinutes} mins</p>
+            <p>🔥 Cook: {recipe.cookTimeMinutes} mins</p>
+            <p>👨‍👩‍👧‍👦 Servings: {recipe.servings}</p>
+          </div>
         </div>
       </div>
 
-      <div className="section">
-        <h2>🧂 Ingredients</h2>
-        <ul>
-          {recipe.ingredients.map((item, idx) => (
-            <li key={idx}>{item}</li>
-          ))}
-        </ul>
-      </div>
+      {/* Body Section */}
+      <div className="recipe-body">
+        <section>
+          <h2>Ingredients</h2>
+          <ul>
+            {recipe.ingredients.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
+        </section>
 
-      <div className="section">
-        <h2>👨‍🍳 Instructions</h2>
-        <ol>
-          {recipe.instructions.map((step, idx) => (
-            <li key={idx}>{step}</li>
-          ))}
-        </ol>
+        <section>
+          <h2>Instructions</h2>
+          <ol>
+            {recipe.instructions.map((step, idx) => (
+              <li key={idx}>{step}</li>
+            ))}
+          </ol>
+        </section>
       </div>
     </div>
   );

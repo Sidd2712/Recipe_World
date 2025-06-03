@@ -1,70 +1,103 @@
 .recipe-detail-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 30px 20px;
-  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff8f0;
+}
+
+/* HERO SECTION */
+.recipe-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+/* Gradient fade from left (image) to right (content) */
+.hero-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 248, 240, 0.95) 100%);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  margin-left: auto;
+  width: 50%;
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   color: #333;
 }
 
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #c0392b;
+}
+
+.hero-info p {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  color: black;
+  font-weight: bolder;
+}
+
 .back-btn {
-  margin-bottom: 20px;
-  background-color: #eee;
-  padding: 8px 16px;
-  border: none;
-  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid #c0392b;
+  color: #c0392b;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
   border-radius: 5px;
+  cursor: pointer;
+  z-index: 4;
 }
 
-.title {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 30px;
+.recipe-body {
+  padding: 3rem 5%;
+  background-color: #fffdfb;
 }
 
-.top-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-bottom: 30px;
+.recipe-body section {
+  margin-bottom: 2.5rem;
 }
 
-.detail-img {
-  max-width: 500px;
-  width: 100%;
-  border-radius: 12px;
+.recipe-body h2 {
+  font-size: 2rem;
+  color: #c0392b;
+  margin-bottom: 1rem;
 }
 
-.details {
-  flex: 1;
-  min-width: 280px;
-  font-size: 16px;
-  line-height: 1.8;
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
+.recipe-body ul,
+.recipe-body ol {
+  padding-left: 1.5rem;
 }
 
-.section {
-  margin-top: 40px;
-}
-
-.section h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
-  color: #ff4d4d;
-}
-
-ul, ol {
-  padding-left: 20px;
-}
-
-li {
-  margin-bottom: 10px;
-}
-
-.not-found {
-  text-align: center;
-  font-size: 24px;
-  color: red;
-  margin-top: 100px;
+.recipe-body li {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }
